@@ -78,9 +78,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const filtered = talks.filter(talk => {
-      // Allow searching by category keywords
+      // Allow searching by category, title, or speaker
       return talk.category.some(cat => cat.toLowerCase().includes(searchTerm)) ||
-             talk.title.toLowerCase().includes(searchTerm);
+             talk.title.toLowerCase().includes(searchTerm) ||
+             talk.speakers.some(speaker => speaker.toLowerCase().includes(searchTerm));
     });
 
     renderSchedule(filtered);
