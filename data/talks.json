@@ -1,0 +1,73 @@
+[
+  {
+    "id": 1,
+    "title": "Introduction to Web Accessibility",
+    "speakers": ["Alice Johnson"],
+    "category": ["accessibility", "frontend"],
+    "duration": "60m",
+    "description": "Learn the fundamentals of building websites that everyone can use.",
+    "startTime": "10:00 AM",
+    "endTime": "11:00 AM"
+  },
+  {
+    "id": 2,
+    "title": "The Power of Modern CSS",
+    "speakers": ["Bob Smith"],
+    "category": ["css", "frontend"],
+    "duration": "60m",
+    "description": "Explore new CSS features like Grid, Flexbox, and Custom Properties.",
+    "startTime": "11:10 AM",
+    "endTime": "12:10 PM"
+  },
+  {
+    "id": 3,
+    "title": "Building Secure APIs with Node.js",
+    "speakers": ["Charlie Brown", "Diana Prince"],
+    "category": ["backend", "security", "nodejs"],
+    "duration": "60m",
+    "description": "Best practices for securing your Express-based REST APIs.",
+    "startTime": "12:20 PM",
+    "endTime": "1:20 PM"
+  },
+  {
+    "id": "lunch",
+    "title": "Lunch Break",
+    "speakers": [],
+    "category": ["break"],
+    "duration": "60m",
+    "description": "Take an hour to refuel and network.",
+    "startTime": "1:20 PM",
+    "endTime": "2:20 PM",
+    "isBreak": true
+  },
+  {
+    "id": 4,
+    "title": "JavaScript Performance Tuning",
+    "speakers": ["Eve Adams"],
+    "category": ["javascript", "performance"],
+    "duration": "60m",
+    "description": "Identify and fix common performance bottlenecks in your JS code.",
+    "startTime": "2:20 PM",
+    "endTime": "3:20 PM"
+  },
+  {
+    "id": 5,
+    "title": "Testing Strategies for Large Apps",
+    "speakers": ["Frank Wright"],
+    "category": ["testing", "devops"],
+    "duration": "60m",
+    "description": "From unit tests to E2E: how to scale your testing infrastructure.",
+    "startTime": "3:30 PM",
+    "endTime": "4:30 PM"
+  },
+  {
+    "id": 6,
+    "title": "The Future of Web Components",
+    "speakers": ["Grace Hopper"],
+    "category": ["webcomponents", "frontend"],
+    "duration": "60m",
+    "description": "A deep dive into custom elements and the shadow DOM.",
+    "startTime": "4:40 PM",
+    "endTime": "5:40 PM"
+  }
+]
