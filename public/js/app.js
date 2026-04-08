@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Fetch data from the API
   const fetchSchedule = async () => {
+    renderSkeletons();
     try {
       const response = await fetch('/api/talks');
       talks = await response.json();
@@ -37,6 +38,25 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (error) {
       console.error('Error fetching schedule:', error);
       scheduleElement.innerHTML = '<div class="loading">Failed to load schedule. Please try again later.</div>';
+    }
+  };
+
+  // Render skeleton loaders
+  const renderSkeletons = () => {
+    scheduleElement.innerHTML = '';
+    for (let i = 0; i < 3; i++) {
+      const skeletonCard = document.createElement('div');
+      skeletonCard.className = 'skeleton-card';
+      skeletonCard.innerHTML = `
+        <div class="skeleton skeleton-title"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text" style="width: 70%"></div>
+        <div style="margin-top: 20px">
+          <div class="skeleton skeleton-tag"></div>
+          <div class="skeleton skeleton-tag"></div>
+        </div>
+      `;
+      scheduleElement.appendChild(skeletonCard);
     }
   };
 
