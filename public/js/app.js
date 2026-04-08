@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const scheduleElement = document.getElementById('schedule');
   const searchInput = document.getElementById('categorySearch');
+  const clearBtn = document.getElementById('clearSearch');
   let talks = [];
 
   // Theme Toggle Logic
@@ -72,6 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
   searchInput.addEventListener('input', (e) => {
     const searchTerm = e.target.value.toLowerCase().trim();
     
+    clearBtn.style.display = searchTerm ? 'block' : 'none';
+
     if (!searchTerm) {
       renderSchedule(talks);
       return;
@@ -85,6 +88,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     renderSchedule(filtered);
+  });
+
+  // Clear search functionality
+  clearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    clearBtn.style.display = 'none';
+    renderSchedule(talks);
+    searchInput.focus();
   });
 
   fetchSchedule();

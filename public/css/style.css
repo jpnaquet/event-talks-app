@@ -97,15 +97,36 @@ header p {
 
 .search-container {
   margin-top: 20px;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 400px;
 }
 
 #categorySearch {
   width: 100%;
-  max-width: 400px;
-  padding: 12px 20px;
+  padding: 12px 45px 12px 20px;
   border-radius: 25px;
   border: none;
   font-size: 1rem;
+}
+
+.clear-btn {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--light-text);
+  cursor: pointer;
+  display: none;
+  line-height: 1;
+}
+
+.clear-btn:hover {
+  color: var(--text-color);
 }
 
 .schedule-grid {
