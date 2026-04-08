@@ -42,6 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // Helper function to highlight matches
+  const highlight = (text, term) => {
+    if (!term || !text) return text;
+    const regex = new RegExp(`(${term})`, 'gi');
+    return text.replace(regex, '<mark>$1</mark>');
+  };
+
   // Render skeleton loaders
   const renderSkeletons = () => {
     scheduleElement.innerHTML = '';
@@ -62,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Render the schedule to the DOM
-  const renderSchedule = (items) => {
+  const renderSchedule = (items, searchTerm = '') => {
     scheduleElement.innerHTML = '';
     
     if (items.length === 0) {
@@ -77,14 +84,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const card = document.createElement('div');
       card.className = `talk-card ${talk.isBreak ? 'break' : ''}`;
       
+      const highlightedTitle = highlight(talk.title, searchTerm);
+      const highlightedSpeakers = talk.speakers.map(s => highlight(s, searchTerm));
       const categoryTags = talk.category
-        .map(cat => `<span class="category-tag">${cat}</span>`)
+        .map(cat => `<span class="category-tag">${highlight(cat, searchTerm)}</span>`)
         .join('');
 
       card.innerHTML = `
         <div class="time-range">${talk.startTime} - ${talk.endTime} (${talk.duration})</div>
-        <h2 class="talk-title">${talk.title}</h2>
-        ${talk.speakers.length > 0 ? `<div class="speakers">by ${talk.speakers.join(' & ')}</div>` : ''}
+        <h2 class="talk-title">${highlightedTitle}</h2>
+        ${talk.speakers.length > 0 ? `<div class="speakers">by ${highlightedSpeakers.join(' & ')}</div>` : ''}
         <div class="description">${talk.description}</div>
         <div class="categories">${categoryTags}</div>
       `;
@@ -111,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
              talk.speakers.some(speaker => speaker.toLowerCase().includes(searchTerm));
     });
 
-    renderSchedule(filtered);
+    renderSchedule(filtered, searchTerm);
   });
 
   // Clear search functionality

@@ -255,6 +255,18 @@ body.dark-mode .skeleton-card {
   border: 0;
 }
 
+/* Highlight Search Results */
+mark {
+  background-color: rgba(52, 152, 219, 0.3);
+  color: inherit;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+body.dark-mode mark {
+  background-color: rgba(187, 134, 252, 0.4);
+}
+
 @media (max-width: 600px) {
   header h1 {
     font-size: 1.8rem;
