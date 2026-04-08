@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const scheduleElement = document.getElementById('schedule');
   const searchInput = document.getElementById('categorySearch');
   const clearBtn = document.getElementById('clearSearch');
+  const searchStatus = document.getElementById('searchStatus');
   let talks = [];
 
   // Theme Toggle Logic
@@ -65,9 +66,12 @@ document.addEventListener('DOMContentLoaded', () => {
     scheduleElement.innerHTML = '';
     
     if (items.length === 0) {
+      searchStatus.textContent = "No talks found for this category.";
       scheduleElement.innerHTML = '<div class="loading">No talks found for this category.</div>';
       return;
     }
+
+    searchStatus.textContent = `${items.length} talk${items.length > 1 ? 's' : ''} found.`;
 
     items.forEach(talk => {
       const card = document.createElement('div');
