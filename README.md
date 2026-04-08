@@ -4,8 +4,12 @@ A modern, responsive web application to manage and display a technical conferenc
 
 ## 🚀 Features
 
-- **Live Schedule:** View all conference sessions chronologically.
-- **Dynamic Search:** Filter talks instantly by category (e.g., frontend, security) or title.
+- **Live Schedule:** View all conference sessions chronologically with detailed info.
+- **Advanced Search:** Filter talks instantly by **category**, **title**, or **speaker**.
+- **Search Highlighting:** Visual feedback by highlighting matching terms in results.
+- **Quick Clear:** One-click button to reset search filters.
+- **Skeleton Screen Loaders:** Smooth perceived performance with animated loading states.
+- **Accessibility (A11y):** Screen reader support via `aria-live` regions and semantic HTML.
 - **Dark Mode:** User-selectable theme with persistence using `localStorage`.
 - **Responsive Design:** Optimized for mobile, tablet, and desktop views.
 - **RESTful API:** Data is served via a Node.js/Express backend.
@@ -23,10 +27,10 @@ A modern, responsive web application to manage and display a technical conferenc
 │   └── talks.json      # The "database" containing talk details
 ├── public/
 │   ├── css/
-│   │   └── style.css   # Modern CSS with Dark Mode support
+│   │   └── style.css   # Modern CSS with Dark Mode & Skeleton support
 │   ├── js/
-│   │   └── app.js      # Frontend logic (fetch, filtering, DOM)
-│   └── index.html      # Main entry point
+│   │   └── app.js      # Frontend logic (fetch, filtering, highlighting)
+│   └── index.html      # Main entry point with A11y enhancements
 ├── server.js           # Express server & API routes
 ├── package.json        # Dependencies & scripts
 └── .gitignore          # Standard git ignore patterns
@@ -53,7 +57,6 @@ A modern, responsive web application to manage and display a technical conferenc
    ```bash
    npm start
    ```
-   *Note: If "npm start" isn't configured, you can run `node server.js`.*
 
 4. Open your browser and visit:
    `http://localhost:3000`
